@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import logo from '@/assets/logo-wp.png';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -11,9 +12,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="font-display text-2xl text-primary tracking-wider">
-              William Pignatti
-            </h3>
+            <div className="flex items-center gap-4">
+              <img
+                src={logo}
+                alt="William Pignatti"
+                className="h-16 w-16 rounded-full border border-primary/20 object-cover"
+              />
+              <h3 className="font-display text-2xl text-primary tracking-wider">
+                William Pignatti
+              </h3>
+            </div>
           </div>
 
           {/* Navigation */}

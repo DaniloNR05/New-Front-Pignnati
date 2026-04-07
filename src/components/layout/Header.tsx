@@ -7,6 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import { cn } from '@/lib/utils';
+import logo from '@/assets/logo-wp.png';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,9 +52,16 @@ export function Header() {
           {/* Logo */}
           <Link 
             to="/" 
-            className="font-display text-xl md:text-2xl tracking-wider text-primary hover:text-gold-light transition-colors duration-300"
+            className="flex items-center gap-3 text-primary hover:text-gold-light transition-colors duration-300"
           >
-            William Pignatti
+            <img
+              src={logo}
+              alt="William Pignatti"
+              className="h-12 w-12 rounded-full border border-primary/20 object-cover md:h-14 md:w-14"
+            />
+            <span className="font-display text-lg tracking-wider md:text-2xl">
+              William Pignatti
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
