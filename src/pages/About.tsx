@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Layout } from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const aboutImage = 'https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?auto=format&fit=crop&w=1200&q=80';
+import aboutImage from '@/assets/about-image.jpg';
 
 export default function About() {
   const { t, language } = useLanguage();
