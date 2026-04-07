@@ -7,6 +7,7 @@ import { Layout } from '@/components/layout/Layout';
 import { SubscribeModal } from '@/components/modals/SubscribeModal';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
+import featuredImage from '@/assets/featured-section.jpg';
 
 // Hero images
 const heroDesktop = '/images/hero-desktop.jpg';
@@ -145,7 +146,7 @@ export default function Home() {
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ 
-                backgroundImage: `url(https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1920&q=80)` 
+                backgroundImage: `url(${featuredImage})` 
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
