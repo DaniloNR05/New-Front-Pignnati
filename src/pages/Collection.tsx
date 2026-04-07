@@ -141,21 +141,21 @@ export default function Collection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <div key={product.id} className="group cursor-pointer">
-                <div className="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+                <div className="aspect-[3/4] overflow-hidden bg-muted mb-4 relative">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
                   <Button 
                     className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
                     onClick={() => addToCart({
-                      id: product.id,
+                      id: String(product.id),
                       name: language === 'pt' ? product.name : product.name_en,
                       price: product.price,
                       image: product.image,
-                      quantity: 1
+                      category: product.collection
                     })}
                   >
                     {language === 'pt' ? 'Adicionar' : 'Add to Cart'}
