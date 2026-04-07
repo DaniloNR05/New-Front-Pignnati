@@ -151,7 +151,7 @@ export default function Collection() {
                   <Button 
                     className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
                     onClick={() => addToCart({
-                      id: product.id,
+                      id: String(product.id),
                       name: language === 'pt' ? product.name : product.name_en,
                       price: product.price,
                       image: product.image,
