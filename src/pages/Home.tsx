@@ -93,10 +93,9 @@ export default function Home() {
               
               {!isAuthenticated && (
                 <Button 
-                  variant="outline"
+                  variant="luxury"
                   size="lg"
                   onClick={() => setIsSubscribeModalOpen(true)}
-                  className="border-primary/70 bg-background/55 text-primary shadow-gold backdrop-blur-sm hover:bg-background/70 hover:text-primary hover:border-primary"
                 >
                   {t.footer.subscribe}
                 </Button>
