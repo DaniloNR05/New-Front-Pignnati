@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="border-t border-primary/10 bg-background">
       <div className="luxury-container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-12">
           {/* Navigation */}
           <div className="space-y-4">
             <h4 className="font-display text-sm tracking-luxury uppercase text-foreground">
@@ -28,13 +28,6 @@ export function Footer() {
                 {t.nav.contact}
               </Link>
             </nav>
-          </div>
-
-          {/* Contact */}
-          <div className="space-y-4">
-            <h4 className="font-display text-sm tracking-luxury uppercase text-foreground">
-              {t.contact.title}
-            </h4>
           </div>
         </div>
 
