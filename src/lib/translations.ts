@@ -16,7 +16,7 @@ export const translations = {
     hero: {
       title: 'WILLIAM PIGNATTI',
       subtitle: '',
-      description: "We create pieces that can be worn for 20 years—and still look new. We don't follow trends. We build legacies.",
+      description: 'Pieces designed to endure decades. No trends, no excess. Only the rigor of time and the construction of a legacy.',
       viewCollection: 'Available Works',
       men: 'Men',
       women: 'Women'
@@ -182,7 +182,7 @@ export const translations = {
     hero: {
       title: 'WILLIAM PIGNATTI',
       subtitle: '',
-      description: 'Criamos peças para serem usadas por 20 anos — e ainda parecerem novas. Não seguimos tendências. Nós construímos legado.',
+      description: 'Peças desenhadas para atravessar décadas. Sem tendências, sem excessos. Apenas o rigor do tempo e a construção de um legado.',
       viewCollection: 'Obras Disponiveis',
       men: 'Homem',
       women: 'Mulher'

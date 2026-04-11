@@ -38,7 +38,7 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 luxury-container pb-24 md:pb-32">
+        <div className="relative z-10 luxury-container pb-16 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="font-display text-4xl md:text-6xl lg:text-7xl tracking-wider text-primary mb-6"
+              className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl tracking-wider text-primary mb-4 sm:mb-6"
             >
               {t.hero.title}
             </motion.h1>
@@ -67,7 +67,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-lg"
+              className="max-w-xl text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 sm:mb-10"
             >
               {t.hero.description}
             </motion.p>
@@ -76,12 +76,13 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 w-full sm:w-auto"
             >
               <Button 
                 variant="luxury" 
                 size="lg"
                 onClick={() => navigate('/collections')}
+                className="w-full sm:w-auto"
               >
                 {t.hero.viewCollection}
               </Button>
@@ -91,6 +92,7 @@ export default function Home() {
                   variant="luxury"
                   size="lg"
                   onClick={() => setIsSubscribeModalOpen(true)}
+                  className="w-full sm:w-auto"
                 >
                   {t.footer.subscribe}
                 </Button>

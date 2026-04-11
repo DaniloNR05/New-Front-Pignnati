@@ -109,7 +109,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="w-full max-w-lg max-h-[90vh] overflow-y-auto pointer-events-auto scrollbar-hide"
             >
-              <div className="luxury-card p-8 md:p-10 relative">
+              <div className="luxury-card p-5 sm:p-6 md:p-10 relative">
                 {/* Close Button */}
                 <button
                   onClick={handleClose}
@@ -145,10 +145,10 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                     <p className="text-xs tracking-widest text-primary/60 uppercase mb-2">
                       {t.modal.brand}
                     </p>
-                    <h2 className="font-display text-2xl md:text-3xl tracking-wide text-primary mb-4">
+                    <h2 className="font-display text-xl sm:text-2xl md:text-3xl tracking-wide text-primary mb-4">
                       {t.modal.title}
                     </h2>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed px-2 sm:px-0">
                       {t.modal.description}
                     </p>
                   </div>
@@ -182,7 +182,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                       />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-sm text-muted-foreground">
                           {t.modal.email}
@@ -249,7 +249,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                     <Button
                       type="submit"
                       variant="luxury"
-                      className="w-full"
+                      className="w-full whitespace-normal h-auto min-h-11 px-4 py-3 text-center leading-tight"
                       disabled={loading}
                     >
                       {loading ? (
