@@ -96,7 +96,7 @@ export default function Home() {
                   variant="outline"
                   size="lg"
                   onClick={() => setIsSubscribeModalOpen(true)}
-                  className="border-primary/30 text-foreground hover:bg-primary/10"
+                  className="border-primary/70 bg-background/55 text-primary shadow-gold backdrop-blur-sm hover:bg-background/70 hover:text-primary hover:border-primary"
                 >
                   {t.footer.subscribe}
                 </Button>
