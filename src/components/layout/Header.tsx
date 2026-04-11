@@ -34,13 +34,16 @@ export function Header() {
     { to: '/contact', label: t.nav.contact },
   ];
 
+  const hideOnTopOfHome = location.pathname === '/' && !isScrolled;
+
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: hideOnTopOfHome ? -100 : 0, opacity: hideOnTopOfHome ? 0 : 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        hideOnTopOfHome && 'pointer-events-none',
         isScrolled
           ? 'bg-background/95 backdrop-blur-xl border-b border-primary/10 shadow-lg shadow-background/50'
           : 'bg-transparent'

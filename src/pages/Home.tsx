@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Layout } from '@/components/layout/Layout';
 import { SubscribeModal } from '@/components/modals/SubscribeModal';
@@ -18,10 +17,6 @@ export default function Home() {
   const { t } = useLanguage();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
-
-  const scrollToFeatured = () => {
-    document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <Layout showFooter={true}>
@@ -103,16 +98,6 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            onClick={scrollToFeatured}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary/50 hover:text-primary transition-colors animate-float"
-          >
-            <ArrowDown className="h-6 w-6" />
-          </motion.button>
         </div>
       </section>
 
