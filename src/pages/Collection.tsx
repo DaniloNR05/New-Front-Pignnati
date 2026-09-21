@@ -43,12 +43,15 @@ export default function Collection() {
 
   const fetchCollectionData = async () => {
     setLoading(true);
+    setCollection(null);
+    setProducts([]);
     try {
       // Fetch collection details
       const collectionsRes = await fetch(`${API_BASE_URL}/api/collections`);
+      let currentCollection: CollectionData | undefined;
       if (collectionsRes.ok) {
         const collections: CollectionData[] = await collectionsRes.json();
-        const currentCollection = collections.find(c => c.slug === slug);
+        currentCollection = collections.find(c => c.slug === slug);
         setCollection(currentCollection || null);
       }
 
@@ -58,11 +61,11 @@ export default function Collection() {
         const allProducts: Product[] = await productsRes.json();
         // Filter products by collection name (assuming slug matches collection name or needs mapping)
         // In a real app, backend should support filtering by collection slug
-        if (collection) {
+        if (currentCollection) {
             // This logic might need adjustment based on how collection is linked to products in your DB
             // Here we try to match by collection name (en) as stored in product
              const filtered = allProducts.filter(p => 
-                p.collection.toLowerCase() === collection?.name_en.toLowerCase() ||
+                p.collection.toLowerCase() === currentCollection.name_en.toLowerCase() ||
                 p.collection.toLowerCase() === slug?.replace('-', ' ')
             );
             setProducts(filtered);
@@ -149,7 +152,7 @@ export default function Collection() {
                   />
                   <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
                   <Button 
-                    className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute bottom-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                     onClick={() => addToCart({
                       id: String(product.id),
                       name: language === 'pt' ? product.name : product.name_en,

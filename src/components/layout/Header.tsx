@@ -20,6 +20,7 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -34,19 +35,16 @@ export function Header() {
     { to: '/contact', label: t.nav.contact },
   ];
 
-  const hideOnTopOfHome = location.pathname === '/' && !isScrolled;
-
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: hideOnTopOfHome ? -100 : 0, opacity: hideOnTopOfHome ? 0 : 1 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        hideOnTopOfHome && 'pointer-events-none',
         isScrolled
           ? 'bg-background/95 backdrop-blur-xl border-b border-primary/10 shadow-lg shadow-background/50'
-          : 'bg-transparent'
+          : 'bg-background/80 backdrop-blur-md'
       )}
     >
       <div className="luxury-container">
@@ -84,6 +82,7 @@ export function Header() {
               size="icon"
               onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
               className="text-muted-foreground hover:text-primary"
+              aria-label={language === 'pt' ? 'Mudar idioma para inglês' : 'Switch language to Portuguese'}
             >
               <Globe className="h-5 w-5" />
               <span className="sr-only">{language.toUpperCase()}</span>
@@ -96,6 +95,7 @@ export function Header() {
                   size="icon"
                   onClick={() => setCartOpen(true)}
                   className="relative text-muted-foreground hover:text-primary"
+                  aria-label={language === 'pt' ? 'Abrir sacola' : 'Open bag'}
                 >
                   <ShoppingBag className="h-5 w-5" />
                   {getTotalItems() > 0 && (
@@ -109,6 +109,7 @@ export function Header() {
                     variant="ghost"
                     size="icon"
                     className="text-muted-foreground hover:text-primary"
+                    aria-label={t.nav.profile}
                   >
                     <User className="h-5 w-5" />
                   </Button>
@@ -125,6 +126,7 @@ export function Header() {
                   size="icon"
                   onClick={logout}
                   className="text-muted-foreground hover:text-destructive"
+                  aria-label={language === 'pt' ? 'Sair' : 'Log out'}
                 >
                   <LogOut className="h-5 w-5" />
                 </Button>
@@ -144,6 +146,8 @@ export function Header() {
             size="icon"
             className="md:hidden text-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={language === 'pt' ? (isMenuOpen ? 'Fechar menu' : 'Abrir menu') : (isMenuOpen ? 'Close menu' : 'Open menu')}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>

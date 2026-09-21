@@ -57,8 +57,8 @@ export default function Register() {
       }
 
       setSuccess(true);
-    } catch (err: any) {
-      setError(err.message || t.auth.register.error);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : t.auth.register.error);
     } finally {
       setLoading(false);
     }

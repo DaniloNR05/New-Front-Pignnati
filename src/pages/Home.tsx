@@ -10,7 +10,7 @@ import featuredImage from '@/assets/featured-section.jpg';
 
 // Hero images
 const heroDesktop = '/images/hero-desktop.jpg';
-const heroMobile = '/images/hero-mobile.jpg';
+const heroMobile = '/images/Capa.PNG';
 
 export default function Home() {
   const [isSubscribeModalOpen, setIsSubscribeModalOpen] = useState(false);
@@ -21,16 +21,17 @@ export default function Home() {
   return (
     <Layout showFooter={true}>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-end">
+      <section className="relative min-h-[100svh] flex items-end">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <picture>
+          <picture className="block h-full w-full">
             <source media="(min-width: 768px)" srcSet={heroDesktop} />
             <img 
               src={heroMobile} 
-              alt="Background" 
+              alt=""
               className="w-full h-full object-cover object-top md:object-center"
               loading="eager"
+              fetchPriority="high"
             />
           </picture>
           {/* Overlay Gradient */}

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { translations, Language } from '@/lib/translations';
 
 interface LanguageContextType {
@@ -23,6 +23,10 @@ interface LanguageProviderProps {
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('pt');
+
+  useEffect(() => {
+    document.documentElement.lang = language === 'pt' ? 'pt-BR' : 'en';
+  }, [language]);
 
   const t = translations[language];
 

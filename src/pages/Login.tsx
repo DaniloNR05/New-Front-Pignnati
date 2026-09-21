@@ -45,8 +45,8 @@ export default function Login() {
       } else {
         navigate('/');
       }
-    } catch (err: any) {
-      setError(err.message || t.auth.login.error);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : t.auth.login.error);
     } finally {
       setLoading(false);
     }
